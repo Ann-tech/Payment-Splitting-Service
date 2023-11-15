@@ -5,7 +5,7 @@ const transactions = require('./fixtures/transactions.json');
 
 
 describe("test /split-payments/compute endpoint", () => {
-    it ("should return 200 OK response for properly formatted request, split values and balance info", async () => {
+    it ("should return 200 OK response, split values and balance info for valid trasactions", async () => {
         const validTransaction = transactions[0];
         const response = await request(app).post("/split-payments/compute")
                 .send(validTransaction)
@@ -47,5 +47,17 @@ describe("test /split-payments/compute endpoint", () => {
         expect(response.body).toHaveProperty("Balance");
         expect(response.body).toHaveProperty("SplitBreakdown");
         expect(response.body.SplitBreakdown).toStrictEqual(validTransactionResponse);  
+        expect(response.body.success).toBe(true);
+    })
+
+    it ("should return 400 Bad request for invalid transactions", async () => {
+        const invalidTransaction = transactions[1];
+        const response = await request(app).post("/split-payments/compute")
+                .send(invalidTransaction)
+                .expect(400)
+                .expect("Content-Type", /json/);
+
+        expect(response.body.success).toBe(false);
+        expect(response.body.message).toBe("Please provide all required fields");
     })
 })

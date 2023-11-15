@@ -36,6 +36,12 @@
                 "SplitEntityId": "SCRACC0215"
             }
         ]
+    },
+    {
+        "ID": 13092,
+        "Amount": 4500,
+        "Currency": "NGN",
+        "CustomerEmail": "anon8@customers.io"
     }
      
 ]
