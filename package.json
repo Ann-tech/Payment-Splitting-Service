@@ -1,0 +1,25 @@
+{
+  "name": "payment-splitting-service",
+  "description": "An application which splits a specific payment amount to several defined entities and updates balance",
+  "version": "1.0.0",
+  "main": "src/app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Ann-tech/Payment-Splitting-Service/issues"
+  },
+  "homepage": "https://github.com/Ann-tech/Payment-Splitting-Service#readme",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Ann-tech/Payment-Splitting-Service.git"
+  },
+  "dependencies": {
+    "express": "^4.18.2",
+    "joi": "^17.11.0"
+  },
+  "devDependencies": {}
+}
