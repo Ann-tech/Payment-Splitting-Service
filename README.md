@@ -42,9 +42,10 @@ npm run dev
 
 Sample request format can be found in the usage section
 
-### Validation and Error handling
+### Validation, Error handling and Test cases
 - The application handles validation efficiently. The request body is validated and appropriate error messages are sent for invalid transaction format. 
 - Note that the fields above are case sensitive and should be provided as seen. A same request format can be found below
+- Test cases can be found [here](https://github.com/Ann-tech/Payment-Splitting-Service/blob/main/tests/splitPayments.test.js)
 
 ## Usage
 
