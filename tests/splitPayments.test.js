@@ -72,8 +72,30 @@ describe("test /split-payments/compute endpoint", () => {
         expect(response.body.message).toBe("\"ID\" field must be a number.");
     })
 
-    it ("should return 400 Bad request for invalid Emails", async () => {
+    it ("should return 400 Bad request if number of entities in splitInfo is less than 1", async () => {
         const invalidTransaction = transactions[3];
+        const response = await request(app).post("/split-payments/compute")
+                .send(invalidTransaction)
+                .expect(400)
+                .expect("Content-Type", /json/);
+
+        expect(response.body.success).toBe(false);
+        expect(response.body.message).toBe("\"SplitInfo\" must contain at least 1 items");
+    })
+
+    it ("should return 400 Bad request for if number of entities in splitInfo is more than 20", async () => {
+        const invalidTransaction = transactions[4];
+        const response = await request(app).post("/split-payments/compute")
+                .send(invalidTransaction)
+                .expect(400)
+                .expect("Content-Type", /json/);
+
+        expect(response.body.success).toBe(false);
+        expect(response.body.message).toBe("\"SplitInfo\" must contain less than or equal to 20 items");
+    })
+    
+    it ("should return 400 Bad request for invalid Emails", async () => {
+        const invalidTransaction = transactions[5];
         const response = await request(app).post("/split-payments/compute")
                 .send(invalidTransaction)
                 .expect(400)
