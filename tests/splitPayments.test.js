@@ -115,4 +115,37 @@ describe("test /split-payments/compute endpoint", () => {
         expect(response.body.success).toBe(false);
         expect(response.body.message).toBe("\"SplitInfo[0].SplitType\" must be one of [FLAT, PERCENTAGE, RATIO]");
     })
+
+    it ("should return 400 Bad request if split Amount of any Entity is less than 0", async () => {
+        const invalidTransaction = transactions[7];
+        const response = await request(app).post("/split-payments/compute")
+                .send(invalidTransaction)
+                .expect(400)
+                .expect("Content-Type", /json/);
+
+        expect(response.body.success).toBe(false);
+        expect(response.body.message).toBe("Split amount cannot be less than 0");
+    })
+
+    it ("should return 400 Bad request if split Amount of any Entity is greater than transaction amount", async () => {
+        const invalidTransaction = transactions[8];
+        const response = await request(app).post("/split-payments/compute")
+                .send(invalidTransaction)
+                .expect(400)
+                .expect("Content-Type", /json/);
+
+        expect(response.body.success).toBe(false);
+        expect(response.body.message).toBe("Split amount cannot be greater than transaction Amount");
+    })
+
+    it ("should return 400 Bad request if final Balance is less than 0", async () => {
+        const invalidTransaction = transactions[9];
+        const response = await request(app).post("/split-payments/compute")
+                .send(invalidTransaction)
+                .expect(400)
+                .expect("Content-Type", /json/);
+
+        expect(response.body.success).toBe(false);
+        expect(response.body.message).toBe("Final Balance cannot be less than 0.");
+    })
 })

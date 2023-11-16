@@ -2,10 +2,19 @@ const { generateError } = require('../errorGenerator');
 
 function validateCurrentSplitAmount(currentSplitAmount, Amount) {
     //SplitAmount for Each Entity cannot be greater than 0 or greater than Transaction amount
-    if (currentSplitAmount > Amount || currentSplitAmount < 0) {
-        const err = new Error('Split amount cannot be less than 0 or greater than transaction Amount');
+
+    let err;
+
+    if (currentSplitAmount < 0) {
+        err = new Error('Split amount cannot be less than 0');
         generateError(err);
     }
+
+    if (currentSplitAmount > Amount) {
+        err =  new Error('Split amount cannot be greater than transaction Amount');
+        generateError(err);
+    }
+
 }
 
 function validateCurrentBalance(currentBalance) {

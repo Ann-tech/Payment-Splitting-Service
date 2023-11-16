@@ -155,6 +155,16 @@ Sample request format can be found in the usage section
 
 ---
 
+### Constraints
+- The SplitInfo array can contain a minimum of 1 split entity and a maximum of 20 entities.
+- The final Balance value in your response cannot be less than 0.
+- The split Amount value computed for each entity cannot be greater than the transaction Amount.
+- The split Amount value computed for each entity cannot be less than 0.
+- The sum of all split Amount values computed cannot be greater than the transaction Amount
+
+- All the above constraints were satisfied. Appropriate error messages are sent if any of the constraint specified about is violated
+
+
 
 
 <!-- Contact -->
@@ -164,7 +174,7 @@ Sample request format can be found in the usage section
 - Twitter - [@OnyekaAnn1](https://twitter.com/OnyekaAnn1)
 - email - Onyekaann17@gmail.com
 
-Project Link: [Conversational-api](https://github.com/Ann-tech/Payment-Splitting-Service)
+Project Link: [Payment Splitting Service API](https://github.com/Ann-tech/Payment-Splitting-Service)
 
 <p align="right"><a href="#readme-top">back to top</a></p>
 

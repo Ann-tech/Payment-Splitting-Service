@@ -236,6 +236,107 @@
                 "SplitEntityId": "SCRACC0019"
             }
         ]
-    }
+    },
+    {
+        "ID": 13092,
+        "Amount": 4500,
+        "Currency": "NGN",
+        "CustomerEmail": "anon8@customers.io",
+        "SplitInfo": [
+            {
+                "SplitType": "FLAT",
+                "SplitValue": 4500,
+                "SplitEntityId": "SCRACC0019"
+            },
+            {
+                "SplitType": "RATIO",
+                "SplitValue": 3,
+                "SplitEntityId": "SCRACC0011"
+            },
+            {
+                "SplitType": "PERCENTAGE",
+                "SplitValue": 3,
+                "SplitEntityId": "SCRACC0015"
+            },
+            {
+                "SplitType": "RATIO",
+                "SplitValue": 2,
+                "SplitEntityId": "SCRACC0016"
+            },
+            {
+                "SplitType": "FLAT",
+                "SplitValue": 2450,
+                "SplitEntityId": "SCRACC0029"
+            },
+            {
+                "SplitType": "PERCENTAGE",
+                "SplitValue": 10,
+                "SplitEntityId": "SCRACC0215"
+            }
+        ]
+     },
+     {
+        "ID": 13092,
+        "Amount": 4500,
+        "Currency": "NGN",
+        "CustomerEmail": "anon8@customers.io",
+        "SplitInfo": [
+            {
+                "SplitType": "FLAT",
+                "SplitValue": 4600,
+                "SplitEntityId": "SCRACC0019"
+            },
+            {
+                "SplitType": "RATIO",
+                "SplitValue": 3,
+                "SplitEntityId": "SCRACC0011"
+            },
+            {
+                "SplitType": "PERCENTAGE",
+                "SplitValue": 3,
+                "SplitEntityId": "SCRACC0015"
+            }
+        ]
+     },     
+     {
+        "ID": 13092,
+        "Amount": 4500,
+        "Currency": "NGN",
+        "CustomerEmail": "anon8@customers.io",
+        "SplitInfo": [
+            {
+                "SplitType": "FLAT",
+                "SplitValue": 450,
+                "SplitEntityId": "SCRACC0019"
+            },
+            {
+                "SplitType": "RATIO",
+                "SplitValue": 3,
+                "SplitEntityId": "SCRACC0011"
+            },
+            {
+                "SplitType": "PERCENTAGE",
+                "SplitValue": 3,
+                "SplitEntityId": "SCRACC0015"
+            },
+            {
+                "SplitType": "RATIO",
+                "SplitValue": 10,
+                "SplitEntityId": "SCRACC0016"
+            },
+            {
+                "SplitType": "FLAT",
+                "SplitValue": 2450,
+                "SplitEntityId": "SCRACC0029"
+            },
+            {
+                "SplitType": "PERCENTAGE",
+                "SplitValue": 10,
+                "SplitEntityId": "SCRACC0215"
+            }
+        ]
+     }
+     
+     
      
 ]

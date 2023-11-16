@@ -50,7 +50,7 @@ function splitTransaction(transactionInfo) {
 
             //validate currentSplitAmount
             validateCurrentSplitAmount(currentSplitAmount, Amount);
-            
+
             currentSplitBreakdown.Amount = currentSplitAmount;
         }
 
