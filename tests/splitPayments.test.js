@@ -46,13 +46,12 @@ describe("test /split-payments/compute endpoint", () => {
         expect(response.body).toHaveProperty("ID");
         expect(response.body).toHaveProperty("Balance");
         expect(response.body).toHaveProperty("SplitBreakdown");
-        expect(response.body.SplitBreakdown).toStrictEqual(validTransactionResponse);  
+        expect(response.body).toMatchObject(validTransactionResponse);  
         expect(response.body.success).toBe(true);
     })
 
     it ("should return 400 Bad request for missing properties", async () => {
         const invalidTransaction = transactions[1];
-        console.log(invalidTransaction);
         const response = await request(app).post("/split-payments/compute")
                 .send(invalidTransaction)
                 .expect(400)

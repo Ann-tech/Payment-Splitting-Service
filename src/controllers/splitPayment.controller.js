@@ -1,12 +1,17 @@
-const { sortSplitType } = require('../utils');
+const { sortSplitInfo, splitTransaction } = require('../utils');
 
 function httpSplitPayment(req, res, next) {
     const transactionInfo = req.body;
 
-    const { ID, Amount, SplitInfo } = transactionInfo;
+    const { SplitInfo } = transactionInfo;
     
     //sort SplitInfo based on SplitType
-    sortSplitType(SplitInfo);
+    sortSplitInfo(SplitInfo);
+
+    const result = splitTransaction(transactionInfo);
+    result.success = true;
+
+    return res.status(200).json(result);
 }
  
 
