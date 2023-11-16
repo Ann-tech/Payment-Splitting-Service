@@ -162,7 +162,12 @@ Sample request format can be found in the usage section
 - The split Amount value computed for each entity cannot be less than 0.
 - The sum of all split Amount values computed cannot be greater than the transaction Amount
 
-- All the above constraints were satisfied. Appropriate error messages are sent if any of the constraint specified about is violated
+- All the above constraints were satisfied. Appropriate error messages are sent if any of the constraint specified about is violated. 
+- Test cases satisfying the above constraints can be found [here](https://github.com/Ann-tech/Payment-Splitting-Service/blob/main/tests/splitPayments.test.js) on the last few test cases.
+
+### NOTE
+- SplitAmount for each entity is never approximated during calculation.
+- SplitAmount is specified as is on every SplitAmount field.
 
 
 
