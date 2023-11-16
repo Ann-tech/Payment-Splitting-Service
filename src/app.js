@@ -15,4 +15,10 @@ if (process.env.NODE_ENV !== 'test') {
     })
 }
 
+//Global error handler middleware
+app.use((err, req, res, next) => {
+    console.log(err.status);
+    return res.status(err.status || 500).json({success: false, message: err.message});
+});
+
 module.exports = app;

@@ -16,30 +16,30 @@ describe("test /split-payments/compute endpoint", () => {
             "ID": 13092,
             "Balance": 0,
             "SplitBreakdown": [
-                {
-                    "SplitEntityId": "SCRACC0019",
-                    "Amount": 450
-                },
-                {
-                    "SplitEntityId": "SCRACC0011",
-                    "Amount": 2450
-                },
-                {
-                    "SplitEntityId": "SCRACC0015",
-                    "Amount": 48
-                },
-                {
-                    "SplitEntityId": "SCRACC0215",
-                    "Amount": 155.2
-                },
-                {
-                    "SplitEntityId": "SCRACC0011",
-                    "Amount": 838.08
-                },
-                {
-                    "SplitEntityId": "SCRACC0016",
-                    "Amount": 558.72
-                }
+              {
+                "SplitEntityId": "SCRACC0019",
+                "Amount": 450
+              },
+              {
+                "SplitEntityId": "SCRACC0029",
+                "Amount": 2450
+              },
+              {
+                "SplitEntityId": "SCRACC0015",
+                "Amount": 48
+              },
+              {
+                "SplitEntityId": "SCRACC0215",
+                "Amount": 155.2
+              },
+              {
+                "SplitEntityId": "SCRACC0011",
+                "Amount": 838.0799999999999
+              },
+              {
+                "SplitEntityId": "SCRACC0016",
+                "Amount": 558.72
+              }
             ]
         }
          

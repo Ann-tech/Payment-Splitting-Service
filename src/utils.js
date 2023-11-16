@@ -16,7 +16,7 @@ function splitTransaction(transactionInfo) {
     for (let i = 0; i < SplitInfo.length; i++) {
         const { SplitType, SplitValue, SplitEntityId } = SplitInfo[i];
         let currentSplitBreakdown = {};
-        
+
         currentSplitBreakdown.SplitEntityId = SplitEntityId;
 
         if (SplitType === "FLAT") {
@@ -39,10 +39,16 @@ function splitTransaction(transactionInfo) {
 
         //update balance
         currentBalance -= currentSplitAmount; 
+        console.log(currentBalance);
 
         SplitBreakdown.push(currentSplitBreakdown);
     }
 
+    if (currentBalance < 0) {
+        const err = new Error('Final Balance cannot be less than 0.')
+        err.status = 400;
+        throw err;
+    }
     const result = {ID, Balance: currentBalance, SplitBreakdown};
     return result;
 }
