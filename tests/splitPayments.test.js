@@ -104,4 +104,15 @@ describe("test /split-payments/compute endpoint", () => {
         expect(response.body.success).toBe(false);
         expect(response.body.message).toBe("CustomerEmail must be a valid email address.");
     })
+
+    it ("should return 400 Bad request for invalid SplitType", async () => {
+        const invalidTransaction = transactions[6];
+        const response = await request(app).post("/split-payments/compute")
+                .send(invalidTransaction)
+                .expect(400)
+                .expect("Content-Type", /json/);
+
+        expect(response.body.success).toBe(false);
+        expect(response.body.message).toBe("\"SplitInfo[0].SplitType\" must be one of [FLAT, PERCENTAGE, RATIO]");
+    })
 })

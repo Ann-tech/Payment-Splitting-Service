@@ -223,6 +223,19 @@
                 "SplitEntityId": "SCRDACC0015"
             }
         ]
+    },
+    {
+        "ID": 13092,
+        "Amount": 4500,
+        "Currency": "NGN",
+        "CustomerEmail": "anon8@customers.io",
+        "SplitInfo": [
+            {
+                "SplitType": "Invalid SplitType",
+                "SplitValue": 450,
+                "SplitEntityId": "SCRACC0019"
+            }
+        ]
     }
      
 ]
