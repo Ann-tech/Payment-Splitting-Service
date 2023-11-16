@@ -167,7 +167,7 @@ Sample request format can be found in the usage section
 
 ### NOTE
 - SplitAmount for each entity is never approximated during calculation.
-- SplitAmount is specified as is on every SplitAmount field.
+- SplitAmount is specified "as is" on every SplitAmount field.
 
 
 
