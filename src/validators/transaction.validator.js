@@ -26,6 +26,7 @@ const transactionValidator = joi.object({
     SplitInfo: joi.array()
                 .min(1)
                 .max(20)
+                .required()
                 .items(
                     joi.object({
                         SplitType: joi.string().valid('FLAT', 'PERCENTAGE', 'RATIO').required(),

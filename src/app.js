@@ -9,9 +9,10 @@ app.use( express.json() );
 
 app.use("/split-payments/compute", splitPaymentRouter)
 
-
-app.listen(PORT, () => {
-    console.log(`Server is running on ${PORT}`);
-})
+if (process.env.NODE_ENV !== 'test') {
+    app.listen(PORT, () => {
+        console.log(`Server is running on ${PORT}`);
+    })
+}
 
 module.exports = app;

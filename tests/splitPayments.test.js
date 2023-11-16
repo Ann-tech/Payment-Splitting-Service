@@ -52,6 +52,7 @@ describe("test /split-payments/compute endpoint", () => {
 
     it ("should return 400 Bad request for missing properties", async () => {
         const invalidTransaction = transactions[1];
+        console.log(invalidTransaction);
         const response = await request(app).post("/split-payments/compute")
                 .send(invalidTransaction)
                 .expect(400)
@@ -72,7 +73,7 @@ describe("test /split-payments/compute endpoint", () => {
         expect(response.body.message).toBe("\"ID\" field must be a number.");
     })
 
-    it ("should return 400 Bad request if number of entities in splitInfo is less than 1", async () => {
+    it ("should return 400 Bad request if number of entities in SplitInfo is less than 1", async () => {
         const invalidTransaction = transactions[3];
         const response = await request(app).post("/split-payments/compute")
                 .send(invalidTransaction)
@@ -83,7 +84,7 @@ describe("test /split-payments/compute endpoint", () => {
         expect(response.body.message).toBe("\"SplitInfo\" must contain at least 1 items");
     })
 
-    it ("should return 400 Bad request for if number of entities in splitInfo is more than 20", async () => {
+    it ("should return 400 Bad request for if number of entities in SplitInfo is more than 20", async () => {
         const invalidTransaction = transactions[4];
         const response = await request(app).post("/split-payments/compute")
                 .send(invalidTransaction)
