@@ -56,7 +56,7 @@ Sample request format can be found in the usage section
 - Request body validation was done using jest. Validation schema can be found [here](https://github.com/Ann-tech/Payment-Splitting-Service/blob/main/src/validators/transaction.validator.js)
 - Other validators and checks can be found [here](https://github.com/Ann-tech/Payment-Splitting-Service/blob/main/src/validators/validator.js)
 
-- Postman collection can be found here(https://github.com/Ann-tech/Payment-Splitting-Service/blob/main/Payment%20Splitting%20Service.postman_collection.json)
+- Postman collection can be found [here](https://github.com/Ann-tech/Payment-Splitting-Service/blob/main/Payment%20Splitting%20Service.postman_collection.json)
 
 ## Usage
 
