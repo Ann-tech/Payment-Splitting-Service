@@ -26,6 +26,26 @@ npm install
 npm run dev
 ```
 
+### Model
+
+#### transaction
+
+| field        | data_type     | constraints               |
+| ------------ | ------------- | ------------------------- |
+| ID           | number        | required, unique          |
+| Amount       | number        | required                  |
+| Currency     | number        | required                  |
+| SplitInfo    | SplitEntity[] | required, min = 1 max = 20|
+| SplitType    | string        | required                  |
+| SplitValue   | number        | required                  |
+| SplitEntityId| string        | required                  |
+
+Sample request format can be found in the usage section
+
+### Validation and Error handling
+- The application handles validation efficiently. The request body is validated and appropriate error messages are sent for invalid transaction format. 
+- Note that the fields above are case sensitive and should be provided as seen. A same request format can be found below
+
 ## Usage
 
 ### Base URL
@@ -116,8 +136,6 @@ npm run dev
   "success": true
 }
 ```
-
-
 
 
 <p align="right"><a href="#readme-top">back to top</a></p>
