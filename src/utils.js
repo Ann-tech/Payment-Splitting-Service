@@ -7,8 +7,8 @@ function splitTransaction(transactionInfo) {
     const { ID, Amount, SplitInfo } = transactionInfo;
 
     let currentBalance = Amount;
-    let SplitBreakdown = [];
     let currentSplitAmount;
+    let SplitBreakdown = [];
     let openingRatioBalance;
     let totalRatio;
 
@@ -16,6 +16,7 @@ function splitTransaction(transactionInfo) {
     for (let i = 0; i < SplitInfo.length; i++) {
         const { SplitType, SplitValue, SplitEntityId } = SplitInfo[i];
         let currentSplitBreakdown = {};
+        
         currentSplitBreakdown.SplitEntityId = SplitEntityId;
 
         if (SplitType === "FLAT") {
@@ -26,17 +27,19 @@ function splitTransaction(transactionInfo) {
             currentSplitBreakdown.Amount = currentSplitAmount;
         } else {
             //FOR RATIO
+
+            //Obtain openingRatioBalance and totalRatio when the first "RATIO" SplitType is encountered; these values will be reused for subsequent "RATIO" SplitTypes
             if (openingRatioBalance === undefined) {
                 openingRatioBalance = currentBalance;
-                totalRatio = calculateTotalRatio(SplitInfo);
-                
+                totalRatio = calculateTotalRatio(SplitInfo);    
             }
             currentSplitAmount = calculateSplitAmountForRatio(SplitValue, openingRatioBalance, totalRatio);
             currentSplitBreakdown.Amount = currentSplitAmount;
         }
 
-        
+        //update balance
         currentBalance -= currentSplitAmount; 
+
         SplitBreakdown.push(currentSplitBreakdown);
     }
 
