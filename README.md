@@ -50,7 +50,7 @@ Sample request format can be found in the usage section
 
 ### Base URL
 
-- 
+- https://payment-splitting-service.onrender.com
 
 ### Split payment transaction
 
