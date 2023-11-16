@@ -1,3 +1,5 @@
+const { validateCurrentSplitAmount, validateCurrentBalance, validateTotalSplitAmount } = require('./validators/validator');
+
 function sortSplitInfo(SplitInfo) {
     const SplitTypeOrder = {FLAT: 1, PERCENTAGE: 2, RATIO: 3};
     SplitInfo.sort((a, b) => SplitTypeOrder[a.SplitType] - SplitTypeOrder[b.SplitType] );
@@ -11,6 +13,7 @@ function splitTransaction(transactionInfo) {
     let SplitBreakdown = [];
     let openingRatioBalance;
     let totalRatio;
+    let totalSplitAmount = 0;
 
 
     for (let i = 0; i < SplitInfo.length; i++) {
@@ -21,10 +24,20 @@ function splitTransaction(transactionInfo) {
 
         if (SplitType === "FLAT") {
             currentSplitAmount = SplitValue;
+
+            //validate currentSplitAmount
+            validateCurrentSplitAmount(currentSplitAmount, Amount);
+
             currentSplitBreakdown.Amount = SplitValue;
+
         } else if (SplitType === "PERCENTAGE") {
             currentSplitAmount = calculateSplitAmountForPercentage(SplitValue, currentBalance);
+
+            //validate currentSplitAmount
+            validateCurrentSplitAmount(currentSplitAmount, Amount);
+            
             currentSplitBreakdown.Amount = currentSplitAmount;
+
         } else {
             //FOR RATIO
 
@@ -34,21 +47,28 @@ function splitTransaction(transactionInfo) {
                 totalRatio = calculateTotalRatio(SplitInfo);    
             }
             currentSplitAmount = calculateSplitAmountForRatio(SplitValue, openingRatioBalance, totalRatio);
+
+            //validate currentSplitAmount
+            validateCurrentSplitAmount(currentSplitAmount, Amount);
+            
             currentSplitBreakdown.Amount = currentSplitAmount;
         }
 
         //update balance
         currentBalance -= currentSplitAmount; 
-        console.log(currentBalance);
+
+        //update totalSplitAmount
+        totalSplitAmount += currentSplitAmount;
 
         SplitBreakdown.push(currentSplitBreakdown);
     }
 
-    if (currentBalance < 0) {
-        const err = new Error('Final Balance cannot be less than 0.')
-        err.status = 400;
-        throw err;
-    }
+    //validate currentBalance
+    validateCurrentBalance(currentBalance);
+
+    //validate totalSplitAmount
+    validateTotalSplitAmount(totalSplitAmount, Amount);
+
     const result = {ID, Balance: currentBalance, SplitBreakdown};
     return result;
 }
@@ -76,6 +96,7 @@ function calculateSplitAmountForRatio(SplitValue, openingRatioBalance, totalRati
     const splitAmount = (SplitValue / totalRatio) * openingRatioBalance;
     return splitAmount;
 }
+
 
 module.exports = {
     sortSplitInfo,
