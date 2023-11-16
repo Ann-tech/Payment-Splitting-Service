@@ -26,6 +26,13 @@ npm install
 npm run dev
 ```
 
+#### Run test
+
+```sh
+npm run test
+```
+- Test cases can be found [here](https://github.com/Ann-tech/Payment-Splitting-Service/blob/main/tests/splitPayments.test.js)
+
 ### Model
 
 #### transaction
@@ -46,6 +53,8 @@ Sample request format can be found in the usage section
 - The application handles validation efficiently. The request body is validated and appropriate error messages are sent for invalid transaction format. 
 - Note that the fields above are case sensitive and should be provided as seen. A same request format can be found below
 - Test cases can be found [here](https://github.com/Ann-tech/Payment-Splitting-Service/blob/main/tests/splitPayments.test.js)
+- Request body validation was done using jest. Validation schema can be found [here](https://github.com/Ann-tech/Payment-Splitting-Service/blob/main/src/validators/transaction.validator.js)
+- Other validators and checks can be found [here](https://github.com/Ann-tech/Payment-Splitting-Service/blob/main/src/validators/validator.js)
 
 ## Usage
 

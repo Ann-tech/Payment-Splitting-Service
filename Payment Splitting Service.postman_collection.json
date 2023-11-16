@@ -1,0 +1,100 @@
+{
+	"info": {
+		"_postman_id": "ca5472a9-150d-410d-a628-1bd993f23908",
+		"name": "Payment Splitting Service",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "20686469"
+	},
+	"item": [
+		{
+			"name": "https://payment-splitting-service.onrender.com/split-payments/compute",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n        \"ID\": 13092,\r\n        \"Amount\": 4500,\r\n        \"Currency\": \"NGN\",\r\n        \"CustomerEmail\": \"anon8@customers.io\",\r\n        \"SplitInfo\": [\r\n            {\r\n                \"SplitType\": \"FLAT\",\r\n                \"SplitValue\": 450,\r\n                \"SplitEntityId\": \"SCRACC0019\"\r\n            },\r\n            {\r\n                \"SplitType\": \"RATIO\",\r\n                \"SplitValue\": 3,\r\n                \"SplitEntityId\": \"SCRACC0011\"\r\n            },\r\n            {\r\n                \"SplitType\": \"PERCENTAGE\",\r\n                \"SplitValue\": 3,\r\n                \"SplitEntityId\": \"SCRACC0015\"\r\n            },\r\n            {\r\n                \"SplitType\": \"RATIO\",\r\n                \"SplitValue\": 2,\r\n                \"SplitEntityId\": \"SCRACC0016\"\r\n            },\r\n            {\r\n                \"SplitType\": \"FLAT\",\r\n                \"SplitValue\": 2450,\r\n                \"SplitEntityId\": \"SCRACC0029\"\r\n            },\r\n            {\r\n                \"SplitType\": \"PERCENTAGE\",\r\n                \"SplitValue\": 10,\r\n                \"SplitEntityId\": \"SCRACC0215\"\r\n            }\r\n        ]\r\n    }",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://payment-splitting-service.onrender.com/split-payments/compute",
+					"protocol": "https",
+					"host": [
+						"payment-splitting-service",
+						"onrender",
+						"com"
+					],
+					"path": [
+						"split-payments",
+						"compute"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "https://payment-splitting-service.onrender.com/split-payments/compute Copy",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n        \"ID\": 13092,\r\n        \"Amount\": 4500,\r\n        \"Currency\": \"NGN\",\r\n        \"CustomerEmail\": \"anon8@customers.io\",\r\n        \"SplitInfo\": [\r\n            {\r\n                \"SplitType\": \"FLAT\",\r\n                \"SplitValue\": 450,\r\n                \"SplitEntityId\": \"SCRACC0019\"\r\n            },\r\n            {\r\n                \"SplitType\": \"RATIO\",\r\n                \"SplitValue\": 3,\r\n                \"SplitEntityId\": \"SCRACC0011\"\r\n            },\r\n            {\r\n                \"SplitType\": \"PERCENTAGE\",\r\n                \"SplitValue\": 3,\r\n                \"SplitEntityId\": \"SCRACC0015\"\r\n            },\r\n            {\r\n                \"SplitType\": \"RATIO\",\r\n                \"SplitValue\": 2,\r\n                \"SplitEntityId\": \"SCRACC0016\"\r\n            },\r\n            {\r\n                \"SplitType\": \"FLAT\",\r\n                \"SplitValue\": 2450,\r\n                \"SplitEntityId\": \"SCRACC0029\"\r\n            },\r\n            {\r\n                \"SplitType\": \"PERCENTAGE\",\r\n                \"SplitValue\": 10,\r\n                \"SplitEntityId\": \"SCRACC0215\"\r\n            }\r\n        ]\r\n    }",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://payment-splitting-service.onrender.com/split-payments/compute",
+					"protocol": "https",
+					"host": [
+						"payment-splitting-service",
+						"onrender",
+						"com"
+					],
+					"path": [
+						"split-payments",
+						"compute"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "https://payment-splitting-service.onrender.com/split-payments/compute Copy 2",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n        \"ID\": 13092,\r\n        \"Amount\": 4500,\r\n        \"Currency\": \"NGN\",\r\n        \"CustomerEmail\": \"anon8@customers.io\",\r\n        \"SplitInfo\": [\r\n            {\r\n                \"SplitType\": \"FLAT\",\r\n                \"SplitValue\": 450,\r\n                \"SplitEntityId\": \"SCRACC0019\"\r\n            },\r\n            {\r\n                \"SplitType\": \"RATIO\",\r\n                \"SplitValue\": 3,\r\n                \"SplitEntityId\": \"SCRACC0011\"\r\n            },\r\n            {\r\n                \"SplitType\": \"PERCENTAGE\",\r\n                \"SplitValue\": 3,\r\n                \"SplitEntityId\": \"SCRACC0015\"\r\n            },\r\n            {\r\n                \"SplitType\": \"RATIO\",\r\n                \"SplitValue\": 2,\r\n                \"SplitEntityId\": \"SCRACC0016\"\r\n            },\r\n            {\r\n                \"SplitType\": \"FLAT\",\r\n                \"SplitValue\": 2450,\r\n                \"SplitEntityId\": \"SCRACC0029\"\r\n            },\r\n            {\r\n                \"SplitType\": \"PERCENTAGE\",\r\n                \"SplitValue\": 10,\r\n                \"SplitEntityId\": \"SCRACC0215\"\r\n            }\r\n        ]\r\n    }",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://payment-splitting-service.onrender.com/split-payments/compute",
+					"protocol": "https",
+					"host": [
+						"payment-splitting-service",
+						"onrender",
+						"com"
+					],
+					"path": [
+						"split-payments",
+						"compute"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
