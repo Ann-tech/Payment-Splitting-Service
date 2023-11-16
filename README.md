@@ -57,6 +57,7 @@ Sample request format can be found in the usage section
 
 - Route: /split-payments/compute
 - Method: POST
+- Url: https://payment-splitting-service.onrender.com/split-payments/compute
 
 :point_down: Body
 
