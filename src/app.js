@@ -5,6 +5,8 @@ const PORT = process.env.PORT || 3000;
 
 const splitPaymentRouter = require('./routes/splitPayment.route');
 
+app.use( express.json() );
+
 app.use("/split-payments/compute", splitPaymentRouter)
 
 

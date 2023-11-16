@@ -50,7 +50,7 @@ describe("test /split-payments/compute endpoint", () => {
         expect(response.body.success).toBe(true);
     })
 
-    it ("should return 400 Bad request for invalid transactions", async () => {
+    it ("should return 400 Bad request for missing properties", async () => {
         const invalidTransaction = transactions[1];
         const response = await request(app).post("/split-payments/compute")
                 .send(invalidTransaction)
@@ -59,5 +59,27 @@ describe("test /split-payments/compute endpoint", () => {
 
         expect(response.body.success).toBe(false);
         expect(response.body.message).toBe("Please provide all required fields");
+    })
+
+    it ("should return 400 Bad request for invalid ID", async () => {
+        const invalidTransaction = transactions[2];
+        const response = await request(app).post("/split-payments/compute")
+                .send(invalidTransaction)
+                .expect(400)
+                .expect("Content-Type", /json/);
+
+        expect(response.body.success).toBe(false);
+        expect(response.body.message).toBe("\"ID\" field must be a number.");
+    })
+
+    it ("should return 400 Bad request for invalid Emails", async () => {
+        const invalidTransaction = transactions[3];
+        const response = await request(app).post("/split-payments/compute")
+                .send(invalidTransaction)
+                .expect(400)
+                .expect("Content-Type", /json/);
+
+        expect(response.body.success).toBe(false);
+        expect(response.body.message).toBe("CustomerEmail must be a valid email address.");
     })
 })

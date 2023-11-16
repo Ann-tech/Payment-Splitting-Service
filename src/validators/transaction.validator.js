@@ -20,7 +20,7 @@ const transactionValidator = joi.object({
                     .required(),
     Currency: joi.string()
                  .required(),
-    customerEmail: joi.string()
+    CustomerEmail: joi.string()
                 .pattern(new RegExp(/^.+@(?:[\w-]+\.)+\w+$/))
                 .required(),
     SplitInfo: joi.array()
@@ -33,6 +33,10 @@ const transactionValidator = joi.object({
                         SplitEntityId: joi.string().required()
                     })
                 )
+}).messages({
+    'string.pattern.base': 'CustomerEmail must be a valid email address.',
+    'any.required': 'Please provide all required fields',
+    'number.base': '{#label} field must be a number.'
 });
 
 
